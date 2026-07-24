@@ -5,7 +5,7 @@
 - development → integration branch (at least one contributor must approve)
 - feature/* → individual features
 ### How to work
-📌 1. Pick a task from Trello
+📌 1. Pick a task
 
 Each contributor selects a task assigned to them.
 
