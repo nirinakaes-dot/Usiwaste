@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 
-from Backend.app.extensions import db
-from Backend.app.models import Review, Order, Listing
-from Backend.app.utils.auth_helpers import user_required, current_identity
+from backend.app.extensions import db
+from backend.app.models import Review, Order, Listing
+from backend.app.utils.auth_helpers import user_required, current_identity
 
 reviews_bp = Blueprint("reviews", __name__, url_prefix="/api/reviews")
 

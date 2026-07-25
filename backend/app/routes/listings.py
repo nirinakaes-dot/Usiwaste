@@ -2,9 +2,9 @@ from datetime import datetime
 
 from flask import Blueprint, request, jsonify
 
-from Backend.app.extensions import db
-from Backend.app.models import Listing
-from Backend.app.utils.auth_helpers import business_required, current_identity
+from backend.app.extensions import db
+from backend.app.models import Listing
+from backend.app.utils.auth_helpers import business_required, current_identity
 
 listings_bp = Blueprint("listings", __name__, url_prefix="/api/listings")
 

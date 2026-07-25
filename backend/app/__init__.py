@@ -1,13 +1,8 @@
-<<<<<<< HEAD:backend/app/__init__.py
-import os
-import sys
-from flask_cors import CORS
-=======
 from flask import Flask, jsonify
->>>>>>> parent of ec6266b (changes'):Backend/app/__init__.py
+from flask_cors import CORS
 
-from ..config import Config
-from Backend.app.extensions import db, migrate, jwt, bcrypt, cors, mail
+from backend.config import Config
+from backend.app.extensions import db, migrate, jwt, bcrypt, cors, mail
 
 
 def create_app(config_class=Config):
@@ -21,13 +16,13 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     mail.init_app(app)
 
-    from Backend.app.models import User, Business, Listing, Order, Review, Favorite  # noqa: F401
+    from backend.app.models import User, Business, Listing, Order, Review, Favorite  # noqa: F401
 
-    from Backend.app.routes.auth import auth_bp
-    from Backend.app.routes.listings import listings_bp
-    from Backend.app.routes.orders import orders_bp
-    from Backend.app.routes.favorites import favorites_bp
-    from Backend.app.routes.reviews import reviews_bp
+    from backend.app.routes.auth import auth_bp
+    from backend.app.routes.listings import listings_bp
+    from backend.app.routes.orders import orders_bp
+    from backend.app.routes.favorites import favorites_bp
+    from backend.app.routes.reviews import reviews_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(listings_bp)
@@ -48,3 +43,4 @@ def create_app(config_class=Config):
         return jsonify({"error": "Internal server error"}), 500
 
     return app
+
