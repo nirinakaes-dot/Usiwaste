@@ -74,7 +74,7 @@ export default function ListingCard({ meal, onAdd = () => {} }) {
             <button
               onClick={() => onAdd(item)}
               disabled={!item.inStock}
-              className="mt-4 flex w-full max-w-[90%] mx-auto items-center justify-around rounded-full bg-[#23A742] px-4 py-2.5 font-medium text-white transition-colors hover:bg-green-700 focus:outline-shadow focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="cursor-pointer transition-colors duration-300 mt-4 flex w-full max-w-[90%] mx-auto items-center justify-around rounded-full bg-[#23A742] px-4 py-2.5 font-medium text-white transition-colors hover:bg-green-700 focus:outline-shadow focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300"
             >
               <ShoppingCart className="h-4 w-4" />
               {item.inStock ? 'Add to Cart' : 'Out of Stock'}
