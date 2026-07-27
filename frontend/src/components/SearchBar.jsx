@@ -34,7 +34,7 @@ export default function SearchAndFilterBar({ onFilterChange = () => {} }) {
           placeholder="Search by product name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-11 pr-10 py-3 bg-white border border-stone-200 rounded-xl text-stone-700 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent shadow-inner transition-shadow"
+          className="w-full pl-11 pr-10 py-3 bg-white border border-stone-200 rounded-xl text-stone-700 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-black/45 focus:border-transparent shadow-inner transition-shadow"
         />
         {search && (
           <button
@@ -46,6 +46,7 @@ export default function SearchAndFilterBar({ onFilterChange = () => {} }) {
           </button>
         )}
       </div>
+      {/* Filter Panel */}
         <div className="p-4 flex flex-col sm:flex-row gap-2 mb-6 w-full">
       {/*  All Categories Dropdown */}
       <div className="relative flex items-center sm:w-48">
