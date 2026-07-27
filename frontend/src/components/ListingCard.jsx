@@ -33,7 +33,7 @@ const sampleMeals = [
     originalPrice: 350,
     discount: 42,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCVeWaI4B1oMLduAPEKiR-UJT5fN2mcJNKW_i-tODDw&s=10',
-    inStock: true,
+    inStock: false,
   },
 ];
 
@@ -41,7 +41,7 @@ function DiscountBadge({ percent }) {
   if (!percent) return null;
 
   return (
-       <span className="absolute top-3 left-3 bg-[#DED97A] text-[#000000] font-['Istok_Web',sans-serif] text-xs font-bold px-2 py-1 rounded-md z-10">
+       <span className="absolute top-3 left-3 bg-[#DED97A] text-[#000000] font-['Istok_Web',sans-serif] text-xs font-bold px-2 py-1 rounded-full z-10">
       {percent}% OFF
     </span>
   );
@@ -60,21 +60,21 @@ export default function ListingCard({ meal, onAdd = () => {} }) {
           </div>
 
           <div className="flex flex-1 flex-col p-4">
-            <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
+            <h3 className="text-2xl font-semibold text-gray-900">{item.name}</h3>
             <p className="mt-1 text-sm text-gray-500">{item.category}</p>
             <p className="mt-3 text-sm text-gray-500">
               Expiry Date: <span className="font-medium text-red-400">{item.expiry}</span>
             </p>
 
             <div className="mt-3 flex items-center gap-2">
-              <span className="text-lg font-bold text-green-600">Ksh {item.price}</span>
+              <span className="text-2xl font-bold text-green-600">Ksh {item.price}</span>
               <span className="text-sm text-gray-400 line-through">Ksh {item.originalPrice}</span>
             </div>
 
             <button
               onClick={() => onAdd(item)}
               disabled={!item.inStock}
-              className="mt-4 flex w-full max-w-[90%] mx-auto items-center justify-around rounded-lg bg-green-600 px-4 py-2.5 font-medium text-white transition-colors hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="mt-4 flex w-full max-w-[90%] mx-auto items-center justify-around rounded-full bg-[#23A742] px-4 py-2.5 font-medium text-white transition-colors hover:bg-green-700 focus:outline-shadow focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300"
             >
               <ShoppingCart className="h-4 w-4" />
               {item.inStock ? 'Add to Cart' : 'Out of Stock'}
