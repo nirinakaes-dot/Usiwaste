@@ -67,6 +67,14 @@ export default function Home (){
         </div>
             <p className="text-2xl font-bold mb-4">Available Products</p>
             <ListingCard />
+                  {/* Passing cart state down to Cart component */}
+      <Cart
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cart={cart}
+        updateQuantity={updateQuantity}
+        removeFromCart={removeFromCart}
+      />
         </div>
     )
 }
