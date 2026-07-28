@@ -19,7 +19,7 @@ export default function Cart({
     onCheckout(cart); // Sends current cart items to bookings
     onClose();
   };
-  
+
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Dark overlay backdrop */}
@@ -119,7 +119,9 @@ export default function Cart({
                   Ksh {totalPrice}
                 </span>
               </div>
-              <button className="w-full rounded-full bg-green-700 py-3 font-medium text-white transition-colors hover:bg-green-900 cursor-pointer">
+              <button 
+              onClick={handleCheckout}
+              className="w-full rounded-full bg-green-700 py-3 font-medium text-white transition-colors hover:bg-green-900 cursor-pointer">
                 Checkout Now
               </button>
             </div>
