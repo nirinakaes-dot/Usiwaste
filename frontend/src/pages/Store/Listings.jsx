@@ -5,7 +5,7 @@ import Dashboard from "./Dashboard";
 export default function Listings() {
     return(
         <div>
-            <Dashboard />
+            {/* <Dashboard /> */}
             <h2>Available Products</h2>
         </div>
     )
