@@ -1,9 +1,12 @@
-import Home from './pages/Home'
-import MyBookings from './pages/MyBookings'
+// import Home from './pages/Buyers/Home'
+// import MyBookings from './pages/Buyers/MyBookings'
+import Listings from "./pages/Store/Listings"
 
 export default function App() {
   return ( 
   // <Home /> 
-  <MyBookings />
+  // <MyBookings />
+  <Listings />
+
 )
 }
