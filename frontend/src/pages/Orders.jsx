@@ -1,9 +1,20 @@
 import React from 'react';
-import {Clock, CircleCheckBig, Calendar} from 'lucide-react';
+import {Clock, CircleCheckBig, Calendar, Star} from 'lucide-react';
 import Cart from "../components/cart";
 import ListingCard from "../components/ListingCard";
 
-export default function Orders() {
+export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }) {
+    
+  const [reviewText, setReviewText] = useState({});
+  const [rating, setRating] = useState({});
+
+  if (bookings.length === 0) {
+    return (
+      <div className="bg-white p-6 rounded-3xl text-center text-gray-500">
+        No active or past bookings found.
+      </div>
+    );
+  }
     return (
         <div className="bg-white p-4 flex rounded-3xl">
             <Clock className='text-yellow-300 h-7 w-7 font-bold mr-1 '/>
