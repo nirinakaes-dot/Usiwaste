@@ -50,6 +50,21 @@ export default function Home (){
         <div className="min-h-screen bg-[#D9D9D9] p-8">
             <Hero />
             <SearchBar />
+            {/* Section for Cart Icon and Total Items */}
+        <div className="flex justify-end mb-4">
+                <button
+          onClick={() => setIsCartOpen(true)}
+          className="flex m-2 items-center gap-2 bg-green-700 hover:bg-green-900 text-white font-medium px-5 py-2.5 rounded-full shadow-md transition-colors cursor-pointer"
+        >
+          <ShoppingCart className="h-5 w-5" />
+          <span>View Cart</span>
+          {totalItems > 0 && (
+            <span className=" text-white text-s font-bold ">
+              ({totalItems})
+            </span>
+          )}
+        </button>  
+        </div>
             <p className="text-2xl font-bold mb-4">Available Products</p>
             <ListingCard />
         </div>
