@@ -23,7 +23,7 @@ export default function Home (){
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
-  
+
     // Function to handle changing quantities
   const updateQuantity = (id, amount) => {
     setCart((prevCart) =>
@@ -38,6 +38,13 @@ export default function Home (){
         .filter(Boolean)
     );
   };
+
+// Function to remove items
+  const removeFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  };
+
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
         <div className="min-h-screen bg-[#D9D9D9] p-8">
