@@ -30,13 +30,15 @@ export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }
             )}
             </div>
             <div>
-           <div className='bg-yellow-700 flex justify space-between'>
-            <p>Samosas</p>
-            <div className="flex gap-3 items-center">
-                <span>Qty: 4</span>
-                <span className='font-bold'> Ksh 240</span> 
-                <Calendar/>
-                <span classsName = "font-red-500 h-4 flex items-center"> 29/07/2026 </span>
+           <div>
+            <h3>{order.name}</h3>
+            </div>
+            <div className="flex items-center gap-4 text-sm text-gray-600">
+                <span>Qty: {order.quantity}</span>
+                <span className='font-bold'> Ksh {order.price * order.quantity}</span> 
+                <div>
+                <Calendar className='h-4 w-4 text-red-700'/>
+                <span classsName = "text-red-700 ">{order.expiry}</span>
             </div>
             <span>Pending</span>
             </div>
