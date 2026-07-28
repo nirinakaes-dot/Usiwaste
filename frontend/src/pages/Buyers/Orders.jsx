@@ -1,8 +1,8 @@
 import React from 'react';
 import {Clock, CircleCheckBig, Calendar, Star} from 'lucide-react';
-import Cart from "../components/cart";
-import ListingCard from "../components/ListingCard";
-import Review from './Reviews'; // Imported Review component
+import Cart from "../../components/cart";
+import ListingCard from "../../components/ListingCard";
+import Review from './ReviewCard'; // Imported Review component
 
 export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }) {
     
