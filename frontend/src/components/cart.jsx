@@ -32,7 +32,7 @@ export default function Cart({
               onClick={onClose}
               className="p-2 text-gray-400 hover:text-gray-600 rounded-full transition-colors"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 cursor-pointer" />
             </button>
           </div>
 
@@ -76,7 +76,7 @@ export default function Cart({
                         onClick={() => removeFromCart(item.id)}
                         className="text-gray-400 hover:text-red-500 transition-colors"
                       >
-                        <Trash2 className="h-4 w-4" />
+                        <Trash2 className="h-4 w-4 cursor-pointer" />
                       </button>
 
                       <div className="flex items-center border border-gray-200 rounded-full px-2 py-0.5 bg-gray-50">
@@ -84,7 +84,7 @@ export default function Cart({
                           onClick={() => updateQuantity(item.id, -1)}
                           className="p-1 text-gray-600 hover:text-gray-900"
                         >
-                          <Minus className="h-3 w-3" />
+                          <Minus className="h-3 w-3 cursor-pointer" />
                         </button>
                         <span className="px-2 text-xs font-semibold text-gray-900">
                           {item.quantity}
@@ -93,7 +93,7 @@ export default function Cart({
                           onClick={() => updateQuantity(item.id, 1)}
                           className="p-1 text-gray-600 hover:text-gray-900"
                         >
-                          <Plus className="h-3 w-3" />
+                          <Plus className="h-3 w-3 cursor-pointer" />
                         </button>
                       </div>
                     </div>
@@ -112,7 +112,7 @@ export default function Cart({
                   Ksh {totalPrice}
                 </span>
               </div>
-              <button className="w-full rounded-full bg-green-700 py-3 font-medium text-white transition-colors hover:bg-green-900">
+              <button className="w-full rounded-full bg-green-700 py-3 font-medium text-white transition-colors hover:bg-green-900 cursor-pointer">
                 Checkout Now
               </button>
             </div>
