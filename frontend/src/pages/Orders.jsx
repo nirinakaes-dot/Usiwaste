@@ -40,14 +40,16 @@ export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }
                 <Calendar className='h-4 w-4 text-red-700'/>
                 <span classsName = "text-red-700 ">{order.expiry}</span>
             </div>
-            <span>Pending</span>
+            {/* Tagged Status Badge */}
+            {/* Status BAdge will go here after order is confirmed to have been picked by store manager */}
+            
+            
             </div>
+            <div>
            </div>
         </div>
-                   
-                )
-            })}
-
         </div>
     )
-}
+})}
+
+</div> )}
