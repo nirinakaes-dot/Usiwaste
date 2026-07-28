@@ -18,7 +18,7 @@ export default function MyBookings() {
             </div>
             <div>
             <p className="text-2xl font-bold mb-4">Activity(0)</p>
-            <div className="bg-green-100">
+            <div className="bg-red-900 p-1">
                 <Orders />
             </div>
             </div>
