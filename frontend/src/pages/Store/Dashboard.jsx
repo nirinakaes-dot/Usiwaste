@@ -41,13 +41,22 @@ export default function Dashboard() {
         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
         <Package className="h-6 w-6 text-white bg-yellow-500" />
         <p className="text-3xl font-bold text-slate-900 mt-2">{totalAvailable}</p>
-        <p className="text-sm font-medium text-slate-500">Available Items</p>
+        <p className="text-sm font-medium text-slate-500"> TotalAvailable Items</p>
          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <Clock className="h-6 w-6 text-yellow-500" />
+        <p className="text-3xl font-bold text-slate-900 mt-2">{totalBooked}</p>
+        <p className="text-sm font-medium text-slate-500"> Booked Items</p>
+        </div>
 
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <CircleCheckBig className="h-6 w-6 text-green-500" />
+        <p className="text-3xl font-bold text-slate-900 mt-2">{totalCollected}</p>
+        <p className="text-sm font-medium text-slate-500"> Collected Items</p>
+        </div>
     </div>
-    </div>
-    </div>
+        </div>
+ 
   );
 }
