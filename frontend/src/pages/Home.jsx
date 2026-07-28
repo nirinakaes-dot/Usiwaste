@@ -23,6 +23,21 @@ export default function Home (){
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
+  
+    // Function to handle changing quantities
+  const updateQuantity = (id, amount) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) => {
+          if (item.id === id) {
+            const newQty = item.quantity + amount;
+            return newQty > 0 ? { ...item, quantity: newQty } : null;
+          }
+          return item;
+        })
+        .filter(Boolean)
+    );
+  };
 
     return (
         <div className="min-h-screen bg-[#D9D9D9] p-8">
