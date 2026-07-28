@@ -6,13 +6,20 @@ export default function Cart({
   onClose, 
   cart, 
   updateQuantity, 
-  removeFromCart 
+  removeFromCart,
+  onCheckout 
 }) {
   if (!isOpen) return null;
 
   // Calculate total directly from props
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+  const handleCheckout = () => {
+    if (cart.length === 0) return;
+    onCheckout(cart); // Sends current cart items to bookings
+    onClose();
+  };
+  
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
       {/* Dark overlay backdrop */}
