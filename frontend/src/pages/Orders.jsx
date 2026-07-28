@@ -2,6 +2,7 @@ import React from 'react';
 import {Clock, CircleCheckBig, Calendar, Star} from 'lucide-react';
 import Cart from "../components/cart";
 import ListingCard from "../components/ListingCard";
+import Review from './Reviews'; // Imported Review component
 
 export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }) {
     
@@ -43,7 +44,14 @@ export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }
             {/* Tagged Status Badge */}
             {/* Status BAdge will go here after order is confirmed to have been picked by store manager */}
             
-            
+            {/* Render extracted Review component when Collected */}
+            {isCollected && (
+              <Review
+                bookingId={order.bookingId}
+                existingReview={order.review}
+                onSubmitReview={onSubmitReview}
+              />
+            )}
             </div>
             <div>
            </div>
