@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ListingCard from "../components/ListingCard";
 import Hero from "../components/hero";
 import SearchBar from "../components/SearchBar";
+import Cart from "../components/cart";
+import { ShoppingCart } from "lucide-react";
 
 export default function Home (){
     return (
