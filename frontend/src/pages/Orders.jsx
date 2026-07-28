@@ -16,8 +16,19 @@ export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }
     );
   }
     return (
-        <div className="bg-white p-4 flex rounded-3xl">
+        <div className="space-y-4">
+            {bookings.map((order) => {
+                const isCollected = order.status === 'collected';
+            return(
+            <div key={order.bookingId} className="bg-white p-5 rounded-3xl shadow-sm border border-gray-100 flex flex-col gap-4">
+            <div>
+                {isCollected ? (
+                    <CircleCheckBig className='text-green-500 h-7 w-7 font-bold mr-1 '/>
+                ) :(
+        
             <Clock className='text-yellow-300 h-7 w-7 font-bold mr-1 '/>
+            )}
+            </div>
             <div>
            <div className='bg-yellow-700 flex justify space-between'>
             <p>Samosas</p>
@@ -30,6 +41,11 @@ export default function Orders({ bookings = [], onToggleStatus, onSubmitReview }
             <span>Pending</span>
             </div>
            </div>
+        </div>
+                   
+                )
+            })}
+
         </div>
     )
 }
