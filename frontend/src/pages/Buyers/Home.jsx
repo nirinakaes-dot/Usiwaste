@@ -52,7 +52,7 @@ export default function Home (){
             <SearchBar />
             {/* Section for Cart Icon and Total Items */}
         <div className="flex justify-end m-4">
-                <button
+        <button
           onClick={() => setIsCartOpen(true)}
           className="flex m-2 items-center gap-2 bg-green-700 hover:bg-green-900 text-white font-medium px-5 py-2.5 rounded-full shadow-md transition-colors cursor-pointer"
         >
