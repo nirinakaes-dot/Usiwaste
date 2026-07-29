@@ -22,8 +22,16 @@ export default function Listings() {
                     <span className="text-white">Add Product</span>
                 </button>
             </div>
-            {/* <Dashboard /> */}
-            <h2>Available Products</h2>
+            <div>
+            <Dashboard />
+            </div>
+            <div>
+                {/* Product Card */}
+                <ProductCard />
+            </div>
+            <div>
+            <Bookings />
+            </div>
         </div>
     )
 }
