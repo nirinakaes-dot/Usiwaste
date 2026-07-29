@@ -34,6 +34,19 @@ export default function Dashboard() {
     .filter(i => i.status === 'collected')
     .reduce((acc, i) => acc + i.quantity, 0);
 
+  const handleConfirmCollection = (bookingId, quantity) => {
+  // 1. Update order status in state or DB
+  setBookings((prevBookings) =>
+    prevBookings.map((b) =>
+      b.bookingId === bookingId ? { ...b, status: 'collected' } : b
+    )
+  );
+
+  // 2. Adjust Dashboard metrics
+  setBookedCount((prev) => Math.max(0, prev - quantity));
+  setCollectedCount((prev) => prev + quantity);
+};
+
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-6 bg-slate-50 min-h-screen">
       {/* Metric KPI Cards */}
