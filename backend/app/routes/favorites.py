@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
 
-from backend.app.extensions import db
-from backend.app.models import Favorite, Listing
-from backend.app.utils.auth_helpers import user_required, current_identity
+from app.extensions import db
+from app.models import Favorite, Listing
+from app.utils.auth_helpers import user_required, current_identity
 
 favorites_bp = Blueprint("favorites", __name__, url_prefix="/api/favorites")
 

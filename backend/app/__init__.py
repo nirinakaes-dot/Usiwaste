@@ -1,8 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-
-from backend.config import Config
-from backend.app.extensions import db, migrate, jwt, bcrypt, cors, mail
+from config import Config
+from app.extensions import db, migrate, jwt, bcrypt, cors, mail
 
 
 def create_app(config_class=Config):
@@ -16,13 +15,13 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     mail.init_app(app)
 
-    from backend.app.models import User, Business, Listing, Order, Review, Favorite  # noqa: F401
+    from app.models import User, Business, Listing, Order, Review, Favorite  # noqa: F401
 
-    from backend.app.routes.auth import auth_bp
-    from backend.app.routes.listings import listings_bp
-    from backend.app.routes.orders import orders_bp
-    from backend.app.routes.favorites import favorites_bp
-    from backend.app.routes.reviews import reviews_bp
+    from app.routes.auth import auth_bp
+    from app.routes.listings import listings_bp
+    from app.routes.orders import orders_bp
+    from app.routes.favorites import favorites_bp
+    from app.routes.reviews import reviews_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(listings_bp)
