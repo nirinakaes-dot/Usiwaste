@@ -25,10 +25,38 @@ export const saveSession = (token, role) => {
   localStorage.setItem(ROLE_KEY, role);
 };
 
-/**
- * Removes auth credentials from LocalStorage to log the user out.
- */
+// Removes auth credentials from LocalStorage to log the user out.
 export const clearSession = () => {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(ROLE_KEY);
 };
+
+// Handles API requests, automatic headers, and JSON parsing
+export async function request(path, { method = "GET", body, auth = true } = {}) {
+  // Default request headers for JSON data
+  const headers = { "Content-Type": "application/json" };
+
+  // Attach Authorization Bearer token if authentication is required
+  if (auth) {
+    const token = getToken();
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+  }
+
+  // Perform the HTTP request against BASE_URL
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method,
+    headers,
+    body: body ? JSON.stringify(body) : undefined,
+  });
+
+  let data = null;
+  // Safely attempt to parse response JSON (handles empty responses like 204 No Content)
+  try {
+    data = await res.json();
+  } catch {
+    /* empty body (e.g. 204) is fine */
+  }
+
+  // Return a standardized response object with status, success flag, and parsed data
+  return { ok: res.ok, status: res.status, data };
+}
