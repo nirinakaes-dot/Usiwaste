@@ -75,7 +75,7 @@ export default function Home (){
         </button>  
         </div>
             <p className="text-2xl font-bold mb-4">Available Products</p>
-            <ListingCard onAdd={addToCart}/>
+            <ListingCard listings={listings} onAdd={addToCart}/>
                   {/* Passing cart state down to Cart component */}
       <Cart
         isOpen={isCartOpen}
