@@ -22,3 +22,7 @@ export async function fetchMyListings() {
 export async function updateListing(id, payload) {
   return request(`/api/listings/${id}`, { method: "PUT", body: payload });
 }
+
+export async function deleteListing(id) {
+  return request(`/api/listings/${id}`, { method: "DELETE" });
+}
