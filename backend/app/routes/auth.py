@@ -4,8 +4,8 @@ from datetime import datetime, timedelta
 from flask import Blueprint, request, jsonify, current_app
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt
 
-from backend.app.extensions import db, mail
-from backend.app.models import User, Business
+from app.extensions import db, mail
+from app.models import User, Business
 from flask_mail import Message
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
@@ -148,7 +148,7 @@ def reset_password():
 @auth_bp.route("/me", methods=["GET"])
 @jwt_required()
 def me():
-    from backend.app.utils.auth_helpers import current_identity
+    from app.utils.auth_helpers import current_identity
 
     entity_id, entity_type = current_identity()
     model = User if entity_type == "user" else Business

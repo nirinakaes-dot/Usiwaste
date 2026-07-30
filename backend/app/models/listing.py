@@ -1,5 +1,5 @@
 from datetime import datetime
-from backend.app.extensions import db
+from app.extensions import db
 
 
 class Listing(db.Model):

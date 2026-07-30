@@ -3,9 +3,9 @@ from datetime import datetime
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
 
-from backend.app.extensions import db
-from backend.app.models import Order, Listing
-from backend.app.utils.auth_helpers import user_required, business_required, current_identity
+from app.extensions import db
+from app.models import Order, Listing
+from app.utils.auth_helpers import user_required, business_required, current_identity
 
 orders_bp = Blueprint("orders", __name__, url_prefix="/api/orders")
 
