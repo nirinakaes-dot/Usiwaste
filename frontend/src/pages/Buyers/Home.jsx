@@ -54,7 +54,7 @@ export default function Home (){
         <div className="flex justify-end m-4">
         <button
           onClick={() => setIsCartOpen(true)}
-          className="flex m-2 items-center gap-2 bg-green-700 hover:bg-green-900 text-white font-medium px-5 py-2.5 rounded-full shadow-md transition-colors cursor-pointer"
+          className="flex m-2 items-center gap-2 bg-green-700 hover:bg-green-900 text-white font-medium px-5 py-2.5 rounded-full shadow-md transition-colors cursor-pointer hover:-translate-y-1 transition-all duration-300"
         >
           <ShoppingCart className="h-5 w-5" />
           <span>View Cart</span>

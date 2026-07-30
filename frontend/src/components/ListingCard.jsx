@@ -53,9 +53,9 @@ export default function ListingCard({ meal, onAdd = () => {} }) {
   return (
 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-w-5xl">
   {mealsToRender.map((item) => (
-    <div key={item.id} className="flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm max-w-xs w-full mx-auto">
+    <div key={item.id} className="flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm max-w-xs w-full mx-auto hover:-translate-y-1 transition-all duration-300 cursor-pointer">
       <div className="relative h-36 w-full bg-gray-100">
-        <img src={item.image} alt={item.name} className="h-full w-full object-cover" />
+        <img src={item.image} alt={item.name} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
         <DiscountBadge percent={item.discount} />
       </div>
 
@@ -74,7 +74,7 @@ export default function ListingCard({ meal, onAdd = () => {} }) {
         <button
           onClick={() => onAdd(item)}
           disabled={!item.inStock}
-          className="cursor-pointer transition-colors duration-300 mt-3 flex w-full items-center justify-center rounded-full bg-green-700 px-3 py-2 text-sm font-medium text-white hover:bg-green-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300"
+          className="cursor-pointer transition-colors duration-300 mt-3 flex w-full items-center justify-center rounded-full bg-green-700 px-3 py-2 text-sm font-medium text-white hover:bg-green-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-1 disabled:cursor-not-allowed disabled:bg-gray-300 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
         >
           <ShoppingCart className="h-4 w-4 mr-2" />
           {item.inStock ? 'Add to Cart' : 'Out of Stock'}
