@@ -4,6 +4,8 @@ import Hero from "../../components/hero";
 import SearchBar from "../../components/SearchBar";
 import Cart from "../../components/cart";
 import { ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+import { fetchListings } from "../../services/listings";
 
 export default function Home (){
      const [cart, setCart] = useState([]);
