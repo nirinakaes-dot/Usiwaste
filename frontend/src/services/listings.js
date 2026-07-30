@@ -4,3 +4,7 @@ import { request } from "./api";
 export async function fetchListings({ status = "available", page = 1 } = {}) {
   return request(`/api/listings?status=${status}&page=${page}`);
 }
+
+export async function fetchListing(id) {
+  return request(`/api/listings/${id}`);
+}
