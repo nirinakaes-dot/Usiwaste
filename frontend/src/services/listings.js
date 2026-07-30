@@ -19,3 +19,6 @@ export async function fetchMyListings() {
   return request("/api/listings/mine");
 }
 
+export async function updateListing(id, payload) {
+  return request(`/api/listings/${id}`, { method: "PUT", body: payload });
+}
