@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 node_modules/
 dist/
 .env
 .DS_Store
 *.local
+=======
+venv/
+__pycache__/
+*.pyc
+instance/
+.env
+*.db
+>>>>>>> dece9b95a1cd556320713293ef17cb93b79cf971
