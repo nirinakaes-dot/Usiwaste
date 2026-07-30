@@ -8,9 +8,16 @@ import { useEffect, useState } from "react";
 import { fetchListings } from "../../services/listings";
 
 export default function Home (){
-     const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const [listings, setListings] = useState([]);
 
+    useEffect(() => {
+    fetchListings({ status: "available" }).then((r) => {
+      if (r.ok) setListings(r.data.listings);
+        });
+    }, []);
+    
   // Function to handle adding items
   const addToCart = (product) => {
     setCart((prevCart) => {
