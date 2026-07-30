@@ -107,6 +107,7 @@ export default function Home (){
         cart={cart}
         updateQuantity={updateQuantity}
         removeFromCart={removeFromCart}
+        onCheckout={handleCheckout}
       />
         </div>
     )
