@@ -6,6 +6,8 @@ import Cart from "../../components/cart";
 import { ShoppingCart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { fetchListings } from "../../services/listings";
+import { createOrder } from "../../services/orders";
+
 
 export default function Home (){
     const [cart, setCart] = useState([]);
@@ -55,6 +57,28 @@ export default function Home (){
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+ // Function to handle checkout
+ const handleCheckout = async (cartItems) => {
+  // if (!isUser) {
+  //   alert("Please log in as a buyer to book items.");
+  //   return;
+  // }
+  const results = [];
+  for (const item of cartItems) {
+    const r = await createOrder(item.id);
+    results.push({ item, ok: r.ok, error: r.data?.error });
+  }
+  const failed = results.filter((x) => !x.ok);
+  if (failed.length) {
+    alert(
+      `${results.length - failed.length} booked. Failed: ` +
+        failed.map((f) => `${f.item.name} (${f.error})`).join(", ")
+    );
+  } else {
+    alert("All items booked! See them in My Bookings.");
+  }
+  setCart([]); // clear cart on success
+};
     return (
         <div className="min-h-screen bg-[#D9D9D9] p-8">
             <Hero />
