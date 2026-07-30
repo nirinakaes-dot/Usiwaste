@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Package, X, Calendar, Tag, Layers } from 'lucide-react';
+import { createListing } from "../../services/listings";
 
 const CATEGORIES = [
   'Bakery',
@@ -43,15 +44,27 @@ export default function AddProductForm({ isOpen, onClose, onProductAdded }) {
     setLoading(true);
 
     try {
-      console.log('Submitting Product to DB:', formData);
-      await new Promise((resolve) => setTimeout(resolve, 800));
+      const payload = {
+        item_name: formData.productName,
+        description: formData.description || undefined,
+        quantity: Number(formData.quantity),
+        original_price: Number(formData.originalPrice),
+        discounted_price: Number(formData.discountPrice),
+        pickup_deadline: `${formData.expiryDate}T23:59:59`,
+      };
 
-      if (onProductAdded) {
-        onProductAdded(formData);
+      const r = await createListing(payload);
+
+      if (!r.ok) {
+        alert(r.data?.error || "Failed to add product");
+        return;
       }
+
+      onProductAdded?.(r.data); // pass the real saved listing back up
       onClose?.();
     } catch (error) {
       console.error('Failed to add product:', error);
+      alert("An unexpected error occurred while adding the product.");
     } finally {
       setLoading(false);
     }
