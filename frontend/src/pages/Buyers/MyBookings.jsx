@@ -5,6 +5,7 @@ import Cart from "../components/cart";
 import Orders from "./Orders";
 import { useEffect, useState } from "react";
 import { fetchMyOrders } from "../../services/orders";
+import Bookings from "../Store/Bookings";
 
 export default function MyBookings() {
   const [orders, setOrders] = useState([]);
