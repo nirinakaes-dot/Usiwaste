@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Package, Clock, CircleCheckBig } from 'lucide-react';
 
 export default function Dashboard() {
-//   const [items, setItems] = useState<InventoryItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  // Inventory items (wire up to the backend API when ready).
+  const [items] = useState([]);
+  const [loading] = useState(true);
 
   // Fetch metrics & items from backend API
 //   useEffect(() => {
