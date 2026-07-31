@@ -7,6 +7,27 @@ import { useEffect, useState } from "react";
 import { fetchMyOrders } from "../../services/orders";
 
 export default function MyBookings() {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+ // Fetch user orders on component mount 
+  useEffect(() => {
+    fetchMyOrders().then((r) => {
+      if (r.ok) setOrders(r.data);
+      setLoading(false);
+    });
+  }, []);
+
+  // map backend order -> the shape the existing Bookings/Orders UI expects
+  const bookings = orders.map((o) => ({
+    bookingId: o.id,
+    name: o.listing?.item_name,
+    quantity: o.listing?.quantity ?? 1,
+    price: o.listing?.discounted_price ?? 0,
+    expiry: o.listing?.pickup_deadline?.slice(0, 10),
+    status: o.status === "picked_up" ? "collected" : o.status,
+  }));
+
     return (
         <div className= "min-h-screen bg-[#D9D9D9] p-8">
             <div>
@@ -19,9 +40,13 @@ export default function MyBookings() {
             <p>Track your booked items and collection status here.</p>
             </div>
             <div>
-            <p className="text-2xl font-bold mb-4">Activity(0)</p>
-            <div className="bg-red-900 p-1">
-                <Orders />
+            <p className="text-2xl font-bold mb-4">Activity({bookings.length})</p>
+            <div className="">
+                      {loading ? (
+                        <p>Loading…</p>
+                    ) : (
+                <Orders bookings={bookings} onConfirmCollection={/* add later */}/>
+                    )}
             </div>
             </div>
         </div>
