@@ -2,9 +2,7 @@ from flask import Flask, jsonify
 
 from config import Config
 from app.extensions import db, migrate, jwt, bcrypt, cors, mail
-from flask_cors import CORS
 
-from backend.config import Config
 
 
 def create_app(config_class=Config):

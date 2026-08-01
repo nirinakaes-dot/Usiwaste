@@ -6,5 +6,3 @@ from app.models.review import Review
 from app.models.favorite import Favorite
 
 __all__ = ["User", "Business", "Listing", "Order", "Review", "Favorite"]
-
-__all__ = ["User", "Business", "Listing", "Order", "Review", "Favorite"]
