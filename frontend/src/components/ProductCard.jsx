@@ -3,9 +3,9 @@ import React from 'react';
 // Fallback sample data so the card renders when no `meal` prop is passed.
 // Replace with real listings from the API once the feed is wired up.
 const sampleMeals = [
-  { id: 1, name: 'Chicken Shawarma', category: 'Fast food', expiry: 'Today 8:00pm', price: 180, originalPrice: 350, quantity: 5, image: 'https://placehold.co/400x300/2C5F2D/FFFFFF?text=Shawarma' },
-  { id: 2, name: 'Sourdough Loaf', category: 'Bakery', expiry: 'Today 7:00pm', price: 120, originalPrice: 250, quantity: 3, image: 'https://placehold.co/400x300/97BC62/17250F?text=Bread' },
-  { id: 3, name: 'Veg Samosas (6pk)', category: 'Snacks', expiry: 'Today 6:30pm', price: 90, originalPrice: 180, quantity: 8, image: 'https://placehold.co/400x300/E0A83B/FFFFFF?text=Samosa' },
+  { id: 1, name: 'Muffins', category: 'Bakery', expiry: 'Today 8:00pm', price: 180, originalPrice: 350, quantity: 5, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuDaoL5ORzP5iktNjuC62LMmkTgqyF9xP40XvA76XGBQ&s=10' },
+  { id: 2, name: 'Chicken Wings', category: 'Fresh Food', expiry: 'Today 7:00pm', price: 120, originalPrice: 250, quantity: 3, image: 'https://placehold.co/400x300/97BC62/17250F?text=Bread' },
+  { id: 3, name: 'Beef Samosas (6pk)', category: 'Snacks', expiry: 'Today 6:30pm', price: 90, originalPrice: 180, quantity: 8, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGCVeWaI4B1oMLduAPEKiR-UJT5fN2mcJNKW_i-tODDw&s=10' },
 ];
 
 export default function ProductCard({ meal, onAdd = () => {} }) {

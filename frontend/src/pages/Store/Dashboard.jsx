@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Package, Clock, CircleCheckBig } from 'lucide-react';
+import ProductCard from '../../components/ProductCard';
 
 export default function Dashboard() {
   // Inventory items (wire up to the backend API when ready).
@@ -51,7 +52,7 @@ export default function Dashboard() {
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-6 bg-slate-50 min-h-screen">
       {/* Metric KPI Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-red">
         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
         <Package className="h-6 w-6 text-white bg-yellow-500" />
         <p className="text-3xl font-bold text-slate-900 mt-2">{totalAvailable}</p>

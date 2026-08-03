@@ -6,12 +6,14 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import NotFound from "./pages/NotFound";
+import Home from "./pages/Buyers/Home";
 
 // Central route table for the app. Add new pages here as they're built.
 export default function AppRoutes() {
   return (
     <Routes>
       {/* public */}
+      <Route path="/"element={<Home />} />
       <Route path="/" element={<Listings />} />
       <Route path="/listings/:id" element={<ListingDetails />} />
       <Route path="/login" element={<Login />} />
